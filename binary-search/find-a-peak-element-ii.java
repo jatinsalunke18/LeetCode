@@ -14,7 +14,7 @@ class Solution {
         while(low<=high){
             int mid = low+(high-low)/2;
             int row = max(mat,mid,n);
-            int left = (mid-1>0)?mat[row][mid-1]:-1;
+            int left = (mid>0)?mat[row][mid-1]:-1;
             int right = (mid+1<m)?mat[row][mid+1]:-1;
             if(mat[row][mid]>left && mat[row][mid]>right) return new int[]{row,mid};
             if(mat[row][mid]<left) high = mid-1;
