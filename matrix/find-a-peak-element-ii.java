@@ -2,7 +2,7 @@ class Solution {
     int max(int[][] mat,int mid,int n){
         int maxInd = 0;
         for(int i=0;i<n;i++){
-            if(mat[i][maxInd]<mat[i][mid]) maxInd = i;
+            if(mat[maxInd][mid]<mat[i][mid]) maxInd = i;
         }
         return maxInd;
     }
