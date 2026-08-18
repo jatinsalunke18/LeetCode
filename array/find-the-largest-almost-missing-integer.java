@@ -8,9 +8,7 @@ class Solution {
         if(k==1){
             HashMap<Integer,Integer> map = new HashMap<>();
             for(int i=0;i<nums.length;i++){
-                for(int j=i;j<=k+i;j++){
-                    map.put(nums[i],map.getOrDefault(nums[i],0)+1);
-                }
+                map.put(nums[i],map.getOrDefault(nums[i],0)+1);
             }
             for(int i=0;i<nums.length;i++){
                 if(map.get(nums[i])==1) ans = Math.max(ans,nums[i]);
