@@ -1,13 +1,13 @@
 class Solution {
     public int mySqrt(int x) {
-        int low = 1;
-        int high = x;
+        long low = 1;
+        long high = x;
         while(low<=high){
-            int mid = low+(high-low)/2;
-            if(mid*mid==x) return mid;
+            long mid = low+(high-low)/2;
+            if(mid*mid==x) return (int)mid;
             if(mid*mid<x) low = mid+1;
             else high = mid-1;
         }
-        return high;
+        return (int)high;
     }
 }
