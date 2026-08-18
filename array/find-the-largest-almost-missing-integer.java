@@ -17,6 +17,7 @@ class Solution {
         }
         int first = nums[0];
         int last = nums[nums.length-1];
+        if(first==last) return -1;
         int freq1 = 1;
         int freq2 = 1;
         for(int i=1;i<nums.length-1;i++){
