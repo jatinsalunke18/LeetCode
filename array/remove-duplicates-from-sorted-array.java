@@ -1,5 +1,9 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
+        if(nums.length<3){
+            if(nums[0]!=nums[1]) return 2;
+            else return 1;
+        }
         int i = 1;
         int j = 1;
         int k = 2;
