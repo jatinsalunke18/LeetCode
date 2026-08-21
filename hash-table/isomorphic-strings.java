@@ -6,10 +6,10 @@ class Solution {
             if(map1.containsKey(s.charAt(i)) && t.charAt(i)!=map1.get(s.charAt(i))) return false;
             else map1.put(s.charAt(i),t.charAt(i));
         }
-        for(int i=0;i<t.length();i++){
-            if(map2.containsKey(t.charAt(i)) && s.charAt(i)!=map2.get(t.charAt(i))) return false;
-            else map2.put(t.charAt(i),s.charAt(i));
-        }
+        // for(int i=0;i<t.length();i++){
+        //     if(map2.containsKey(t.charAt(i)) && s.charAt(i)!=map2.get(t.charAt(i))) return false;
+        //     else map2.put(t.charAt(i),s.charAt(i));
+        // }
         return true;
     }
 }
