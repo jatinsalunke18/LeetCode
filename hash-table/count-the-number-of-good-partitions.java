@@ -1,16 +1,16 @@
 class Solution {
     public int numberOfGoodPartitions(int[] nums) {
-        if(nums.length==1) return 1;
-        int rep = 0;
+        int mod = 1000000007;
         HashMap<Integer,Integer> map = new HashMap<>();
-        for(int num:nums){
-            map.put(num,map.getOrDefault(num,0)+1);
+        for(int i=0;i<nums.length;i++){
+            map.put(nums[i],i);
         }
-        for(int key:map.keySet()){
-            if(map.get(key)>1) rep++;
+        int res = 1;
+        int j = 0;
+        for(int i=0;i<nums.length;i++){
+            res = i>j?(res*2)%mod:res;
+            j = Math.max(j,map.get(nums[i]));
         }
-        if(map.size()==nums.length) return map.size()*2;
-        if(map.size()==rep) return map.size();
-        return map.size()-rep;
+        return res;
     }
 }
