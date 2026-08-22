@@ -9,7 +9,6 @@ class Solution {
             sum += dig;
             num = num/10;
         }
-        if(pro == 0)return false;
         if(n%(pro+sum)==0) return true;
         return false;
     }
