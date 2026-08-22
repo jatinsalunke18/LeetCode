@@ -1,22 +1,14 @@
 class Solution {
-    public int maxOperations(int[] nums, int k) {
-        Arrays.sort(nums);
-        int left = 0;
-        int right = nums.length-1;
+    public int maxOperations(int[] arr, int k) {
         int cnt = 0;
-        while(left<right){
-            int sum = nums[left] + nums[right];
-            if(sum<k){
-                left++;
-            }
-            else if(sum>k){
-                right--;
-            }
-            else{
-                left++;
-                right--;
+        HashSet<Integer> set = new HashSet<>();
+        for(int i=0;i<arr.length;i++){
+            int rem = k - arr[i];
+            if(set.contains(rem)){
                 cnt++;
+                set.remove(rem);
             }
+            else set.add(arr[i]);
         }
         return cnt;
     }
