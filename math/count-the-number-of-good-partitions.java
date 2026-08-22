@@ -1,5 +1,6 @@
 class Solution {
     public int numberOfGoodPartitions(int[] nums) {
+        if(nums.length==1) return 1;
         int rep = 0;
         HashMap<Integer,Integer> map = new HashMap<>();
         for(int num:nums){
