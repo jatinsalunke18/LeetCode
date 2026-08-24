@@ -1,8 +1,8 @@
 class Solution {
     public long maximumSubarraySum(int[] nums, int k) {
-        int maxsum = 0;
-        int sum = 0;
-        for (int i = 0; i < nums.length - k; i++) {
+        long maxsum = 0;
+        long sum = 0;
+        for (int i = 0; i <=nums.length - k; i++) {
             HashSet<Integer> set = new HashSet<>();
             for (int j = i; j < i + k; j++) {
                 set.add(nums[j]);
@@ -11,6 +11,7 @@ class Solution {
                 for (int j = i; j < i + k; j++) {
                     sum += nums[j];
                 }
+                System.out.println(sum);
                 maxsum = Math.max(sum,maxsum);
             }
             sum = 0;
