@@ -5,7 +5,7 @@ class Solution {
             multiples[nums[i]] = 1;
         }
         int j = k;
-        while(k<multiples.length && multiples[j]==1) j+=k;
+        while(j<multiples.length && multiples[j]==1) j+=k;
         return j;
     }
 }
