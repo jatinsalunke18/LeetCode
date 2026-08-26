@@ -6,12 +6,12 @@ class Solution {
         for(int i=0;i<fruits.length;i++){
             int temp = 0;
             map.put(fruits[i],map.getOrDefault(fruits[i],0)+1);
-            if(map.size()<=2){
+            while(map.size()>2){
+                map.put(fruits[k],map.getOrDefault(fruits[k],0)-1);
+                if(map.get(fruits[k])==0) map.remove(fruits[k]);
+                k++;
+            }
                 max = Math.max(max,i-k+1);
-            }
-            if(map.size()>2){
-                map.remove(fruits[k++]);
-            }
         }
         return max;
     }
