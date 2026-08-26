@@ -7,10 +7,7 @@ class Solution {
             int temp = 0;
             map.put(fruits[i],map.getOrDefault(fruits[i],0)+1);
             if(map.size()<=2){
-                for(int key:map.keySet()){
-                    temp+=map.get(key);
-                }
-                max = Math.max(max,temp);
+                max = Math.max(max,i-k+1);
             }
             if(map.size()>2){
                 map.remove(fruits[k++]);
