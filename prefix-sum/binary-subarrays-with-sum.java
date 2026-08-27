@@ -15,7 +15,8 @@ class Solution {
                     count++;
                     k++;
                 }
-                if(k<i && nums[k]==1) count++;
+                if(k<=i && nums[k]==1) count++;
+
             }
         }
         return count;
