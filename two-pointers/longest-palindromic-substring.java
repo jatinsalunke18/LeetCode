@@ -8,31 +8,22 @@ class Solution {
         return true;
     }
     public String longestPalindrome(String s) {
-        int left = 0;
-        int right = s.length() - 1;
+        String ans = "";
 
-        while (left <= right) {
+        for (int left = 0; left < s.length(); left++) {
 
-            if (isPallindrome(s, left, right)) {
-                StringBuilder ans = new StringBuilder();
+            for (int right = s.length() - 1; right >= left; right--) {
 
-                for (int i = left; i <= right; i++) {
-                    ans.append(s.charAt(i));
+                // No need to check if it's not longer than current answer
+                if (right - left + 1 <= ans.length())
+                    break;
+
+                if (isPallindrome(s, left, right)) {
+                    ans = s.substring(left, right + 1);
+                    break;
                 }
-
-                return ans.toString();
-            }
-
-            // Try removing from the left
-            if (isPallindrome(s, left + 1, right)) {
-                left++;
-            }
-            // Try removing from the right
-            else {
-                right--;
             }
         }
-
-        return "";
+        return ans;
     }
 }
