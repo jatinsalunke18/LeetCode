@@ -9,19 +9,30 @@ class Solution {
     }
     public String longestPalindrome(String s) {
         int left = 0;
-        int right = s.length()-1;
+        int right = s.length() - 1;
 
-        while(left<=right){
-            if(isPallindrome(s,left,right)){
+        while (left <= right) {
+
+            if (isPallindrome(s, left, right)) {
                 StringBuilder ans = new StringBuilder();
-                for(int i=left;i<=right;i++){
+
+                for (int i = left; i <= right; i++) {
                     ans.append(s.charAt(i));
                 }
+
                 return ans.toString();
             }
-            if(isPallindrome(s,left,right-1)) right--;
-            else left++;
+
+            // Try removing from the left
+            if (isPallindrome(s, left + 1, right)) {
+                left++;
+            }
+            // Try removing from the right
+            else {
+                right--;
+            }
         }
+
         return "";
     }
 }
