@@ -10,6 +10,7 @@ class Solution {
         temp.remove(temp.size()-1);
     }
     public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
         HashSet<List<Integer>> ans = new HashSet<>();
         List<Integer> temp = new ArrayList<>();
         func(0,nums,ans,temp);
