@@ -1,22 +1,18 @@
 class Solution {
-
-    List<List<Integer>> ans = new ArrayList<>();
-
-    private void subarrays(int i,int[] arr,List<Integer> list){
-        if(i==arr.length){
-            ans.add(new ArrayList<>(list));
+    void func(int ind,int nums[],List<List<Integer>> ans,List<Integer> temp){
+        if(ind == nums.length){
+            ans.add(new ArrayList<>(temp));
             return;
         }
-        //Not take condition
-        subarrays(i+1,arr,list);
-        //take conditon
-        list.add(arr[i]);
-        subarrays(i+1,arr,list);
-        list.remove(list.size()-1);
+        func(ind+1,nums,ans,temp);
+        temp.add(nums[ind]);
+        func(ind+1,nums,ans,temp);
+        temp.remove(temp.size()-1);
     }
     public List<List<Integer>> subsets(int[] nums) {
-        List<Integer> list = new ArrayList<>();
-        subarrays(0,nums,list);
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        func(0,nums,ans,temp);
         return ans;
     }
 }
