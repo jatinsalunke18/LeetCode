@@ -4,8 +4,9 @@ class Solution {
     long func(long n) {
         long len = (long) Math.log10(n);
         if (len < 3) return cnt;
-        cnt += (n - (long) Math.pow(10, len) + 1) * (len / 3);
-        return func((long) Math.pow(10, len - 3));
+        long p = (long) Math.pow(10, len);
+        cnt += (n - p + 1) * (len / 3);
+        return func(p - 1);
     }
 
     public long countCommas(long n) {
