@@ -1,14 +1,13 @@
 class Solution {
-    public boolean isPalindrome(int n) {
-        int og = n;
-        int dig = 0;
-        int ans = 0;
-        while(n>0){
-            dig = n%10;
-            n = n/10;
-            ans = ans*10+dig;
+    public boolean isPalindrome(int x) {
+        String s = x+"";
+        int left =  0;
+        int right = s.length()-1;
+        while(left<right){
+            if(s.charAt(left)!=s.charAt(right)) return false;
+            left++;
+            right--;
         }
-        if(ans == og) return true;
-        else return false;
+        return true;
     }
 }
